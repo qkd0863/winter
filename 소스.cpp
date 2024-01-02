@@ -1,54 +1,14 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include "Player.h"
+#include "setting.h"
 
-const int Map_x = 10;
-const int Map_y = 10;
 
-#define UP 72
-#define DOWN 80
-#define LEFT 75
-#define RIGHT 77
-#define ESC 27
-#define ENTER 13
 
-struct Player
-{
 
-private:
-	int x = 5;int y = 5;
-public:
-	int getX()
-	{
-		return x;
-	}
-	int getY()
-	{
-		return y;
-	}
 
-	void setX(int _x)
-	{
-		x = _x;
-	}
-	void setY(int _y)
-	{
-		y = _y;
-	}
-
-	void action()
-	{
-		printf("action\n");
-		_getch();
-	}
-};
-
-void drawMap(Player P);
 void keyevent(Player* P);
-
-
-
-
 int main()
 {
 	Player P;
@@ -57,8 +17,8 @@ int main()
 	while (1)
 	{
 		system("cls");
-		drawMap(P);
-		keyevent(&P);
+		P.Draw();
+		P.KeyEvent();
 	}
 
 }
@@ -68,22 +28,7 @@ int main()
 
 
 
-void drawMap(Player P)
-{
-	for (int i = 0;i < Map_y;i++)
-	{
-		for (int j = 0;j < Map_x;j++)
-		{
-			if (P.getX() == j && P.getY() == i)
-			{
-				printf("P\t");
-				continue;
-			}
-			printf("+\t");
-		}
-		printf("\n\n");
-	}
-}
+
 void keyevent(Player *P)
 {
 	printf("Å° ÀÔ·Â\n");
