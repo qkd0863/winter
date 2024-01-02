@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "Player.h"
 #include "setting.h"
-
+#include "Map.h"
 
 
 
@@ -12,12 +12,13 @@ void keyevent(Player* P);
 int main()
 {
 	Player P;
-
+	Map M;
 
 	while (1)
 	{
 		system("cls");
 		P.Draw();
+		M.Draw();
 		P.KeyEvent();
 	}
 
