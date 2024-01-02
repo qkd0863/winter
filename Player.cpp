@@ -31,32 +31,52 @@ void Player::Draw()
 	cout << "P";
 }
 
-void Player::KeyEvent()
+void Player::Update()
+{
+	int input = _kbhit();
+	if (input)
+	{
+		int c = 0;
+		c = _getch();
+		this->KeyEvent(c);
+	}
+}
+
+void Player::KeyEvent(int input)
 {
 	gotoxy(0, 12);
+	static int a = 0;
+
 	printf("키 입력\n");
-	char c = 0;
-	c = _getch();
-	switch (c)
+	
+	switch (input)
 	{
 	case LEFT:
 		if (x <= 1)
 			break;
+		gotoxy(x * 2, y);
+		cout << " ";
 		x--;
 		break;
 	case RIGHT:
 		if (x >= Map_x - 1)
 			break;
+		gotoxy(x * 2, y);
+		cout << " ";
 		x++;
 		break;
 	case UP:
 		if (y <= 1)
 			break;
+		gotoxy(x * 2, y);
+		cout << " ";
 		y--;
 		break;
 	case DOWN:
 		if (y >= Map_y - 1)
 			break;
+		gotoxy(x * 2, y);
+		cout << " ";
 		y++;
 		break;
 	case ESC:
@@ -68,6 +88,7 @@ void Player::KeyEvent()
 	default:
 		break;
 	}
+	gotoxy(0, 13);
 	printf("이동\n");
 
 }

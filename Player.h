@@ -1,8 +1,8 @@
 #pragma once
+#include "Object.h"
 
 
-
-class Player
+class Player :public Object
 {
 
 	
@@ -14,6 +14,7 @@ public:
 	void setX(int _x);
 	void setY(int _y);
 	void action();
-	void Draw();
-	void KeyEvent();
+	virtual void Draw();
+	virtual void Update();
+	void KeyEvent(int input);
 };

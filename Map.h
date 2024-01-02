@@ -1,9 +1,11 @@
 #pragma once
-class Map
+#include "Object.h"
+class Map :public Object
 {
 private:
 public:
-
-	void Draw();
+	Map();
+	virtual void Draw();
+	virtual void Update();
 };
 

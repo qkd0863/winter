@@ -1,6 +1,10 @@
 #include "Map.h"
 #include "setting.h"
 
+Map::Map()
+{
+}
+
 void Map::Draw()
 {
 	for (int i = 0;i <= Map_y;i++)
@@ -13,4 +17,8 @@ void Map::Draw()
 			
 		}
 	}
+}
+
+void Map::Update()
+{
 }

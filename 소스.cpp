@@ -1,25 +1,35 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include <time.h>
 #include "Player.h"
 #include "setting.h"
 #include "Map.h"
-
+#include "GameLoop.h"
 
 
 
 void keyevent(Player* P);
 int main()
 {
+	CONSOLE_CURSOR_INFO cursorInfo = { 0, };
+	cursorInfo.dwSize = 1;
+	cursorInfo.bVisible = FALSE;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+
+	GameLoop G;
 	Player P;
 	Map M;
+	clock_t starttime = 0, endtime = 0;
+	clock_t time = 0;
+
+	G.AddObject(&P);
+	G.AddObject(&M);
 
 	while (1)
 	{
-		system("cls");
-		P.Draw();
-		M.Draw();
-		P.KeyEvent();
+		G.Draw();
+		G.Update();
 	}
 
 }
@@ -32,7 +42,9 @@ int main()
 
 void keyevent(Player *P)
 {
+	
 	printf("Å° ÀÔ·Â\n");
+	
 	char c = 0;
 	c = _getch();
 	switch (c)
