@@ -37,6 +37,30 @@ void GameLoop::AddObject(Map *_M)
 	}
 }
 
+void GameLoop::AddObject(Monster* _M)
+{
+	for (int i = 0;i < sizeof(O) / sizeof(O[0]);i++)
+	{
+		if (O[i] == nullptr)
+		{
+			O[i] = _M;
+			break;
+		}
+	}
+}
+
+void GameLoop::AddObject(Timer* _T)
+{
+	for (int i = 0;i < sizeof(O) / sizeof(O[0]);i++)
+	{
+		if (O[i] == nullptr)
+		{
+			O[i] = _T;
+			break;
+		}
+	}
+}
+
 void GameLoop::Draw()
 {
 	for (int i = 0;i < sizeof(O) / sizeof(O[0]);i++)
